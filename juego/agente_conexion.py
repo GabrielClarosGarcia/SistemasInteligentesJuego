@@ -104,13 +104,20 @@ class AgenteConexion(Agente):
     # Uniform Cost Search (UCS)
     # -----------------------
     def _ucs(self, start, goal):
-        pq = [(0, start)]
+        import heapq
+
+        pq = []
+        counter = 0  # <- rompe empates
+
+        heapq.heappush(pq, (0, counter, start))
+
         came = {}
         best = {start: 0}
         closed = set()
 
         while pq:
-            g, cur = heapq.heappop(pq)
+            g, _, cur = heapq.heappop(pq)
+
             if cur in closed:
                 continue
             closed.add(cur)
@@ -121,8 +128,11 @@ class AgenteConexion(Agente):
 
             for nb in self._vecinos(cur):
                 ng = g + nb.get_costo()
+
                 if nb not in best or ng < best[nb]:
                     best[nb] = ng
                     came[nb] = cur
-                    heapq.heappush(pq, (ng, nb))
+                    counter += 1
+                    heapq.heappush(pq, (ng, counter, nb))
+
         return []

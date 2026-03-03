@@ -86,7 +86,7 @@ class EntornoJuego(Entorno):
         self.emociones_pendientes = list(self.tablero.personajes.keys())
 
         self.estado = ESTADO_JUEGO["JUGANDO"]
-        print(f"✅ Nivel {numero_nivel} cargado")
+        print(f" Nivel {numero_nivel} cargado")
         print(f"   Emociones a conectar: {self.emociones_pendientes}")
 
     # -----------------------------------------------------------
@@ -135,7 +135,7 @@ class EntornoJuego(Entorno):
         Llamado cuando el jugador selecciona una emocion y tecnica.
         """
         if emocion not in self.emociones_pendientes:
-            print(f"⚠️  Emocion '{emocion}' ya completada o no existe")
+            print(f"  Emocion '{emocion}' ya completada o no existe")
             return
 
         self.emocion_activa = emocion
@@ -146,7 +146,7 @@ class EntornoJuego(Entorno):
 
         # Genera el mensaje de voz segun la tecnica
         self.mensaje_voz = self._generar_mensaje_tecnica(tecnica)
-        print(f"🔍 Iniciando busqueda: {emocion} con {tecnica}")
+        print(f" Iniciando busqueda: {emocion} con {tecnica}")
 
     def _ejecutar_busqueda(self):
         """Ejecuta la busqueda y guarda el resultado para animacion."""
@@ -157,7 +157,7 @@ class EntornoJuego(Entorno):
         pos_meta   = self.tablero.metas.get(self.emocion_activa)
 
         if not pos_inicio or not pos_meta:
-            print(f"❌ No hay inicio o meta para {self.emocion_activa}")
+            print(f" No hay inicio o meta para {self.emocion_activa}")
             self.estado = ESTADO_JUEGO["JUGANDO"]
             return
 
@@ -212,7 +212,7 @@ class EntornoJuego(Entorno):
             self.puntuacion += 10
 
             resultado = self.resultados_busqueda.get(self.emocion_activa, {})
-            print(f"✅ Conexion completada: {self.emocion_activa}")
+            print(f" Conexion completada: {self.emocion_activa}")
             print(f"   Pasos: {resultado.get('pasos', 0)}")
             print(f"   Costo: {resultado.get('costo', 0)}")
 
@@ -222,7 +222,7 @@ class EntornoJuego(Entorno):
         # Verifica si todas las emociones fueron conectadas
         if not self.emociones_pendientes:
             self.estado = ESTADO_JUEGO["COMPLETADO"]
-            print(f"🎉 Nivel {self.nivel_actual} completado!")
+            print(f" Nivel {self.nivel_actual} completado!")
         else:
             self.estado = ESTADO_JUEGO["JUGANDO"]
 
@@ -272,11 +272,11 @@ class EntornoJuego(Entorno):
     def toggle_modo_tecnico(self):
         self.modo_tecnico = not self.modo_tecnico
         modo = "TÉCNICO" if self.modo_tecnico else "NIÑO"
-        print(f"🔄 Modo cambiado a: {modo}")
+        print(f" Modo cambiado a: {modo}")
 
     def cambiar_tecnica(self, tecnica: str):
         self.tecnica_actual = tecnica
-        print(f"⚙️  Técnica cambiada a: {tecnica}")
+        print(f"  Técnica cambiada a: {tecnica}")
 
 
 # -----------------------------------------------------------
@@ -324,4 +324,4 @@ if __name__ == "__main__":
     print(f"Estado final: {entorno.get_estado()}")
     print(f"Puntuacion final: {entorno.puntuacion}")
 
-    print("\n✅ Entorno funcionando correctamente")
+    print("\n Entorno funcionando correctamente")

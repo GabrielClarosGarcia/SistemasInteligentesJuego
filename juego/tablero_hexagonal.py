@@ -28,11 +28,11 @@ TIPOS_CELDA = {
 # Cada emocion tiene un color y debe conectarse a una estacion
 # -----------------------------------------------------------
 EMOCIONES = {
-    "tristeza":  {"color": (70, 130, 180),  "estacion": "juego",       "emoji": "😢"},
-    "miedo":     {"color": (147, 112, 219), "estacion": "calma",       "emoji": "😨"},
-    "enojo":     {"color": (220, 50, 50),   "estacion": "abrazo",      "emoji": "😠"},
-    "alegria":   {"color": (255, 215, 0),   "estacion": "amigos",      "emoji": "😊"},
-    "ansiedad":  {"color": (50, 180, 50),   "estacion": "respiracion", "emoji": "😰"},
+    "tristeza":  {"color": (70, 130, 180),  "estacion": "juego"},
+    "miedo":     {"color": (147, 112, 219), "estacion": "calma"},
+    "enojo":     {"color": (220, 50, 50),   "estacion": "abrazo"},
+    "alegria":   {"color": (255, 215, 0),   "estacion": "amigos"},
+    "ansiedad":  {"color": (50, 180, 50),   "estacion": "respiracion"},
 }
 
 ESTACIONES = {
@@ -247,4 +247,4 @@ if __name__ == "__main__":
     vecinos2 = tablero.get_vecinos(2, 1)
     print(f"\nVecinos de (2,1) evitando obstáculos: {vecinos2}")
 
-    print("\n✅ Tablero hexagonal funcionando correctamente")
+    print("\n Tablero hexagonal funcionando correctamente")
