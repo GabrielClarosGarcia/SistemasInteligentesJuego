@@ -1,6 +1,5 @@
-# juego/main.py
-from juego.entorno_juego import EntornoJuego
-from juego.visualizador import Visualizador
+from entorno_juego import EntornoJuego
+from visualizador import Visualizador
 
 
 def main():
