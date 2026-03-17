@@ -6,7 +6,7 @@
 # *              sin informacion y con informacion         *
 # **********************************************************
 
-from AgenteIA.Agente import Agente
+from Agente import Agente
 from copy import deepcopy
 import time
 
